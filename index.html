@@ -17,3 +17,185 @@
                 1. レンズの基礎：屈折と形状
             </h2>
         </div>
+
+
+        <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波長と光の性質：画像センシングへの応用</title>
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --accent-blue: #38bdf8;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+            --bg-gray: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--primary-dark);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-dark), #1e293b);
+            color: var(--white);
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 1px; }
+
+        /* メインビジュアル */
+        .visual-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .visual-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* 3カラム：物理特性 */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card h2 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .tag-blue { border-left: 5px solid var(--accent-blue); }
+        .tag-red { border-left: 5px solid var(--accent-red); }
+        .tag-purple { border-left: 5px solid var(--accent-purple); }
+
+        .spec-list { padding-left: 20px; font-size: 0.95rem; }
+
+        /* 実務ステップ */
+        .dx-insight {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .dx-insight h3 { color: var(--white); margin-top: 0; }
+
+        .logic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .logic-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logic-item strong { color: var(--accent-blue); }
+
+        .formula {
+            display: inline-block;
+            background: #0f172a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: serif;
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>波長と光の物理特性：画像センシングへの応用</h1>
+        <p>「波の性質」を利用し、肉眼を超えた自動検査システムを構築する</p>
+    </header>
+
+    <div class="visual-box">
+        <img src="wave.png" alt="電磁波スペクトルと実務範囲の図解">
+        <p style="color: #64748b; font-size: 0.85rem; margin-top: 15px;">※画像は `wavelength.png` として保存して使用してください</p>
+    </div>
+
+    <div class="property-grid">
+        <div class="card tag-blue">
+            <h2>青色光：散乱の利用</h2>
+            <p>波長が短い（$450\text{nm}$付近）ほど、微細な凹凸で激しく散乱します。</p>
+            <ul class="spec-list">
+                <li><b>用途:</b> 金属表面の極微細なキズ、透明体上の埃の検出。</li>
+                <li><b>メリット:</b> 可視化しにくい表面状態をコントラスト高く抽出。</li>
+            </ul>
+        </div>
+
+        <div class="card tag-red">
+            <h2>赤外光：透過の利用</h2>
+            <p>波長が長い（$850\text{nm}$以上）ほど、物質内部へ浸透・透過しやすくなります。</p>
+            <ul class="spec-list">
+                <li><b>用途:</b> 黒色樹脂容器の液量検査、基板裏側のパターン検査。</li>
+                <li><b>メリット:</b> 可視光を遮断するパッケージを「透かして」見る。</li>
+            </ul>
+        </div>
+
+        <div class="card tag-purple">
+            <h2>波長と屈折率（色収差）</h2>
+            <p>波長によって屈折率が異なるため、ピント位置がズレる現象に注意が必要です。</p>
+            <ul class="spec-list">
+                <li><b>注意:</b> 照明波長を変更（例：白→赤）した際は再ピント調整が必須。</li>
+                <li><b>対策:</b> 複数波長を同時に使う場合は「アポクロマートレンズ」を選定。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dx-insight">
+        <h3>💡 DX自動化：人員削減のためのセンシング戦略</h3>
+        <p>単に「撮る」のではなく、波長の物理特性を利用して「判定を容易にする（アルゴリズムを単純化する）」ことが、安定した自動化の鍵です。</p>
+        
+        <div class="logic-grid">
+            <div class="logic-item">
+                <strong>表面検査の自動化</strong><br>
+                短波長（青/UV）照明でノイズを排除し、欠陥のみを浮かび上がらせる。
+            </div>
+            <div class="logic-item">
+                <strong>内部検査の自動化</strong><br>
+                赤外（NIR/SWIR）照明で中身を可視化。人による開封・破壊検査を廃止。
+            </div>
+            <div class="logic-item">
+                <strong>AI精度の向上</strong><br>
+                補色関係を利用し、背景と対象のコントラストを物理的に最大化。
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
