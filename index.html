@@ -1092,3 +1092,226 @@
 
 </body>
 </html>
+
+
+
+    <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光学設計ダッシュボード：光の基本特性と最適化戦略</title>
+    <style>
+        :root {
+            --bg-deep: #050a18;
+            --panel-bg: #101d33;
+            --accent-green: #32cd32; /* 光の基本：グリーン */
+            --accent-hamen: #00d4ff; /* 波面・DM：シアン */
+            --accent-yugami: #facc15; /* ゆがみ・TC：ゴールド */
+            --text-main: #e0e6ed;
+            --text-dim: #b0c4de;
+            --border: #1e3a5f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Inter, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--accent-green), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* メインビジュアル：reflect.png */
+        .visual-frame {
+            background: var(--panel-bg);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .visual-frame img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* グリッド構成 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--panel-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .basics-card h2 { color: var(--accent-green); }
+
+        .card-spec {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .logic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .logic-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            display: flex;
+            gap: 10px;
+        }
+
+        .logic-list strong { color: #fff; width: 110px; flex-shrink: 0; }
+
+        /* 実務ステップ */
+        .golden-rule {
+            background: linear-gradient(135deg, #1e3a5f 0%, #050a18 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-green);
+            text-align: center;
+        }
+
+        .golden-rule h3 {
+            color: var(--accent-green);
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        .logic-flow {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .logic-box {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            min-width: 320px;
+        }
+
+        .logic-box strong { font-size: 1.1rem; color: #fff; }
+        .logic-box span { font-size: 0.9rem; color: var(--text-dim); }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>OPTICAL ENGINEERING DASHBOARD</h1>
+        <p>「入り口（光）」を正しく整え、AIの判定精度を100%に近づける</p>
+    </header>
+
+    <div class="visual-frame">
+        <img src="reflect.png" alt="光の反射・補色・解像度の実務特性図解">
+        <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 15px;">
+            SYSTEM STATUS: OPERATIONAL // OPTICAL BASICS DATA LOADED
+        </p>
+    </div>
+
+    <div class="grid">
+        <div class="card basics-card">
+            <h2>01. 反射の制御（キズ vs 印刷）</h2>
+            <div class="card-spec">物理量：振動の向き・主光線の経路</div>
+            <ul class="logic-list">
+                <li><strong>正反射 (Specular)</strong>「キズ」を白く浮かび上がらせる。照明配置でグレアを殺すか、キズを撮るか選択。</li>
+                <li><strong>拡散反射 (Diffuse)</strong>「印刷や色」をテカリなしで正しく見せる。物質本来の情報を捉える。</li>
+                <li><strong>実務の勘所</strong>偏光フィルタをカメラと照明にクロス配置することで、テカリを「物理的に」除去。</li>
+            </ul>
+        </div>
+
+        <div class="card basics-card">
+            <h2>02. 色の戦略（補色コントラスト）</h2>
+            <div class="card-spec">物理量：波長 (Wavelength)</div>
+            <ul class="logic-list">
+                <li><strong>原理 (吸収)</strong>対象の「補色（反対色）」の光を当てると、光が吸収され真っ黒に沈む。</li>
+                <li><strong>原理 (反射)</strong>対象の「同色」の光を当てると、光が反射され真っ白に映る。</li>
+                <li><strong>DXへの貢献</strong>AI学習前に照明だけで背景を消し、対象物だけを浮き上がらせることで、ソフト側の負荷を劇的に下げる。</li>
+            </ul>
+        </div>
+
+        <div class="card basics-card">
+            <h2>03. 解像度の限界（深度 vs 回折）</h2>
+            <div class="card-spec">物理量：絞り (Aperture) ・F値</div>
+            <ul class="logic-list">
+                <li><strong>被写界深度</strong>絞る（F値大）ほど、ピントの奥行きが深くなる。ワークの上下変動を許容。</li>
+                <li><strong>回折限界</strong>絞りすぎると光の波の性質（回折）が強まり、「小絞りボケ」で逆に解像度が落ちる。</li>
+                <li><strong>スウィートスポット</strong>解像力最優先なら開ける、ピント深度が必要なら絞る。バランス最強はF5.6～F8。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="golden-rule">
+        <h3>🛠 OPTICAL DESIGN PRIORITIES FOR DX</h3>
+        <p>人員削減を目指す自動化において、誤判定を物理的に防ぐ王道ステップ</p>
+        <div class="logic-flow">
+            <div class="logic-box" style="border-color: var(--accent-yugami);">
+                <strong>1. テレセントリック</strong><br>
+                <span>幾何学的な正しさを確保</span><br>
+                ワークが動いても倍率不変。視差ゼロで寸法精度を担保。
+            </div>
+            <div class="logic-box" style="border-color: var(--accent-green);">
+                <strong>2. 補色照明</strong><br>
+                <span>圧倒的なコントラストを確保</span><br>
+                照明の色だけでノイズを消し去り、対象物のみを抽出。
+            </div>
+            <div class="logic-box" style="border-color: var(--accent-hamen);">
+                <strong>3. 偏光/DM</strong><br>
+                <span>ノイズ（テカリ・ボケ）を除去</span><br>
+                偏光でテカリを殺し、DMで動的な収差を修正して究極の解像度へ。
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
