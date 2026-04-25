@@ -385,34 +385,212 @@
         </div>
     </div>
 
-    <div class="practical-notes">
-        <h3>🛠 実務における選定ロジック</h3>
-        <table class="logic-table">
-            <thead>
-                <tr>
-                    <th>解決したい課題</th>
-                    <th>推奨される波長帯</th>
-                    <th>その理由</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>金属部品の0.1mm以下のキズ検査</td>
-                    <td><b>光 (青/UV)</b></td>
-                    <td>波長が短く、表面の凹凸で光が強く散乱するため。</td>
-                </tr>
-                <tr>
-                    <td>段ボール箱を開けずに内容物の有無を確認</td>
-                    <td><b>電波 (ミリ波) / テラヘルツ</b></td>
-                    <td>紙や樹脂を透過し、金属や液体で反射する性質を利用。</td>
-                </tr>
-                <tr>
-                    <td>暗闇や濃霧の中での動体検知（自動運転等）</td>
-                    <td><b>電波 (レーダー) / 赤外線</b></td>
-                    <td>可視光を遮る微粒子をすり抜けて反射が戻ってくるため。</td>
-                </tr>
-            </tbody>
-        </table>
+  <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電磁波解析ポータル：光と電波の設計戦略</title>
+    <style>
+        :root {
+            --bg-deep: #050a18;
+            --panel-bg: #101d33;
+            --accent-opt: #00d4ff;
+            --accent-thz: #ffd700;
+            --accent-rad: #32cd32;
+            --text-main: #e0e6ed;
+            --text-dim: #b0c4de;
+            --border: #1e3a5f;
+        }
+
+        body {
+            font-family: 'Inter', 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            margin: 0;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--accent-opt), var(--accent-rad));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* メイン画像エリア */
+        .visual-frame {
+            background: var(--panel-bg);
+            padding: 15px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .visual-frame img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* スペック比較グリッド */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--panel-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+        }
+
+        .opt-card::before { background: var(--accent-opt); }
+        .thz-card::before { background: var(--accent-thz); }
+        .rad-card::before { background: var(--accent-rad); }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card .value-table {
+            width: 100%;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .value-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .value-table .label { color: var(--text-dim); width: 100px; }
+
+        /* 実務の黄金律 */
+        .golden-rule {
+            margin-top: 50px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #050a18 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-opt);
+            text-align: center;
+        }
+
+        .golden-rule h3 {
+            color: var(--accent-opt);
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        .logic-flow {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .logic-box {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            min-width: 280px;
+        }
+
+        .logic-box strong { color: var(--accent-thz); font-size: 1.1rem; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ELECTROMAGNETIC SPECTRUM ANALYTICS</h1>
+        <p>光・電波の特性を解読し、人員削減・自動化の精度を最大化する</p>
+    </header>
+
+    <div class="visual-frame">
+        <img src="denpa.png" alt="光と電波の特性ダッシュボード">
+        <p style="color: var(--accent-opt); font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">
+            SYSTEM STATUS: OPERATIONAL // SPECTRUM DATA LOADED
+        </p>
+    </div>
+
+    <div class="grid">
+        <div class="card opt-card">
+            <h2 style="color: var(--accent-opt);">OPTICS (光)</h2>
+            <table class="value-table">
+                <tr><td class="label">主領域</td><td>可視光・近赤外線</td></tr>
+                <tr><td class="label">得意分野</td><td>表面のキズ、微細な形状、色判別</td></tr>
+                <tr><td class="label">限界点</td><td>不透明な壁を抜けることは不可</td></tr>
+            </table>
+        </div>
+
+        <div class="card thz-card">
+            <h2 style="color: var(--accent-thz);">TERAHERTZ (境界)</h2>
+            <table class="value-table">
+                <tr><td class="label">主領域</td><td>テラヘルツ波 (0.1〜10THz)</td></tr>
+                <tr><td class="label">得意分野</td><td>非破壊検査、梱包内の中身透視</td></tr>
+                <tr><td class="label">限界点</td><td>水分を含む対象には吸収される</td></tr>
+            </table>
+        </div>
+
+        <div class="card rad-card">
+            <h2 style="color: var(--accent-rad);">RADIO (電波)</h2>
+            <table class="value-table">
+                <tr><td class="label">主領域</td><td>マイクロ波・ミリ波</td></tr>
+                <tr><td class="label">得意分野</td><td>広域検知、通信、障害物越え</td></tr>
+                <tr><td class="label">限界点</td><td>精度（解像度）が低く形状特定不向き</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="golden-rule">
+        <h3>🛠 SENSOR SELECTION LOGIC</h3>
+        <p>自動化における「何をセンサーで見るか」の判断基準</p>
+        <div class="logic-flow">
+            <div class="logic-box">
+                <strong>表面 (Surface) 検査</strong><br>
+                高解像度な「光」を選択。<br>
+                0.01mmのキズを逃さない。
+            </div>
+            <div class="logic-box">
+                <strong>内部 (Internal) 透視</strong><br>
+                透過力の強い「電波/赤外」を選択。<br>
+                箱を開けずに人員を削減する。
+            </div>
+        </div>
     </div>
 </div>
 
