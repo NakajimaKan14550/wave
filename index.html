@@ -738,3 +738,199 @@
 
 </body>
 </html>
+
+
+    <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光学の真髄：波面制御と幾何学的補正</title>
+    <style>
+        :root {
+            --bg-color: #0b0f1a;
+            --panel-bg: #161e2e;
+            --accent-hamen: #00d4ff; /* 波面用：シアン */
+            --accent-yugami: #facc15; /* ゆがみ用：イエロー */
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+            --border: #2d3748;
+        }
+
+        body {
+            font-family: 'Inter', 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--accent-hamen), var(--accent-yugami));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* セクション構成 */
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .section-grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: var(--panel-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hamen-header { color: var(--accent-hamen); background: rgba(0, 212, 255, 0.05); }
+        .yugami-header { color: var(--accent-yugami); background: rgba(250, 204, 21, 0.05); }
+
+        .img-container {
+            padding: 15px;
+            text-align: center;
+            background: #000;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .content { padding: 25px; }
+
+        .content h3 { font-size: 1.1rem; margin-top: 0; }
+
+        .logic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .logic-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .logic-list li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* 統合知見エリア */
+        .summary-box {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px dashed var(--accent-hamen);
+            text-align: center;
+        }
+
+        .summary-box h2 { color: var(--accent-hamen); margin-top: 0; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .badge-ao { background: var(--accent-hamen); color: #000; }
+        .badge-tc { background: var(--accent-yugami); color: #000; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ADVANCED OPTICS PORTAL</h1>
+        <p>「物理的位相」と「幾何学的経路」の完全制御による自動化の極致</p>
+    </header>
+
+    <div class="section-grid">
+        <div class="card">
+            <div class="card-header hamen-header">
+                <span>01. 波面制御と補償光学 (AO)</span>
+            </div>
+            <div class="img-container">
+                <img src="hamen.png" alt="波面とDMの原理図解">
+            </div>
+            <div class="content">
+                <div class="badge badge-ao">PHASE CONTROL</div>
+                <h3>位相の乱れを打ち消す動的補正</h3>
+                <ul class="logic-list">
+                    <li><strong style="color:var(--accent-hamen)">原理：</strong> 大気の揺らぎや光学系の微細な熱歪みを、波面センサでリアルタイム計測。</li>
+                    <li><strong style="color:var(--accent-hamen)">DMの役割：</strong> 数百〜数千のアクチュエータが鏡面をナノ単位で変形させ、光路差を物理的に相殺。</li>
+                    <li><strong style="color:var(--accent-hamen)">実務：</strong> 宇宙通信や超精密検査において、環境変動によるボケを排除し「回折限界」の解像度を維持する。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header yugami-header">
+                <span>02. ゆがみ抑制とテレセントリック</span>
+            </div>
+            <div class="img-container">
+                <img src="yugami.png" alt="ゆがみとテレセントリックの原理図解">
+            </div>
+            <div class="content">
+                <div class="badge badge-tc">GEOMETRIC ACCURACY</div>
+                <h3>幾何学的エラーの排除と絶対精度</h3>
+                <ul class="logic-list">
+                    <li><strong style="color:var(--accent-yugami)">原理：</strong> 周辺部の倍率変化（ディストーション）を、光学設計により極限（0.1%以下）まで抑制。</li>
+                    <li><strong style="color:var(--accent-yugami)">テレセントリックの役割：</strong> 主光線を光軸と平行に整え、ワークの上下動による倍率変化と視差を物理的に消去。</li>
+                    <li><strong style="color:var(--accent-yugami)">実務：</strong> 寸法測定の誤判定を入り口で防ぎ、アルゴリズムの負荷を軽減。人員削減の基盤となる「信頼できる絵」を撮る。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <h2>エンジニアリング・インサイト</h2>
+        <p style="max-width: 900px; margin: 0 auto; color: var(--text-dim);">
+            ソフトウェア（AI）の負担を減らすには、ハードウェア（光学）で「物理的な正しさ」を担保することが不可欠である。
+            <br><br>
+            <strong>波面補正</strong>は「鮮明さ」を、<strong>テレセントリック</strong>は「座標の正しさ」を司る。
+            これらを組み合わせることで、設置環境や対象物の個体差に左右されない、真の24時間無人稼働システムが完成する。
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
