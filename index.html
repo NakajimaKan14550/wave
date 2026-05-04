@@ -144,7 +144,7 @@
 
     <div class="visual-box">
         <img src="wave.png" alt="電磁波スペクトルと実務範囲の図解">
-        <p style="color: #64748b; font-size: 0.85rem; margin-top: 15px;">※画像は `wavelength.png` として保存して使用してください</p>
+        <p style="color: #64748b; font-size: 0.85rem; margin-top: 15px;"></p>
     </div>
 
     <div class="property-grid">
@@ -177,7 +177,7 @@
     </div>
 
     <div class="dx-insight">
-        <h3>💡 DX自動化：人員削減のためのセンシング戦略</h3>
+        <h3>💡 安定化した自動化</h3>
         <p>単に「撮る」のではなく、波長の物理特性を利用して「判定を容易にする（アルゴリズムを単純化する）」ことが、安定した自動化の鍵です。</p>
         
         <div class="logic-grid">
@@ -340,6 +340,56 @@
 </head>
 <body>
 
+    
+
+<div class="info-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+    <!-- 統合された比較カード -->
+    <div class="card comparison-block" style="background: #fff; border-radius: 15px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        
+        <div style="background: #f8fafc; padding: 15px 25px; border-bottom: 1px solid #e2e8f0; text-align: center;">
+            <h2 style="margin: 0; font-size: 1.25rem; color: #0f172a;">電磁波の性質：光 vs 電波</h2>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 0;">
+            <!-- 左側：光 -->
+            <div class="light-section" style="flex: 1; min-width: 300px; padding: 30px; border-right: 1px solid #e2e8f0; border-bottom: 4px solid var(--accent-blue);">
+                <h3 style="color: var(--accent-blue); display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-sun"></i> 光 (Visible & NIR)
+                </h3>
+                <p style="font-weight: 700; font-size: 0.9rem; margin-bottom: 15px;">波長：400nm ～ 2.5µm</p>
+                <ul class="feature-list" style="color: #334155; padding-left: 20px; font-size: 0.95rem; line-height: 1.8;">
+                    <li>極めて高い直進性と解像度</li>
+                    <li>表面の微細なキズや色の判別に最適</li>
+                    <li>不透明な固体で完全に遮断される</li>
+                    <li style="color: var(--accent-blue); font-weight: 600;">→ マシンビジョン・精密検査領域</li>
+                </ul>
+            </div>
+
+            <!-- 右側：電波 -->
+            <div class="radio-section" style="flex: 1; min-width: 300px; padding: 30px; border-bottom: 4px solid #f59e0b;">
+                <h3 style="color: #f59e0b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-tower-broadcast"></i> 電波 (Radio Waves)
+                </h3>
+                <p style="font-weight: 700; font-size: 0.9rem; margin-bottom: 15px;">波長：1mm ～ 100km+</p>
+                <ul class="feature-list" style="color: #334155; padding-left: 20px; font-size: 0.95rem; line-height: 1.8;">
+                    <li>回折（回り込み）性能が高く、障害物に強い</li>
+                    <li>不透明な壁やプラスチックを透過して通信</li>
+                    <li>エネルギー密度が低く、広範囲へ拡散する</li>
+                    <li style="color: #f59e0b; font-weight: 600;">→ Wi-Fi・Bluetooth・DX通信インフラ</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 統合の結論（DX配管の視点） -->
+        <div style="background: #0d4d4d; color: #fff; padding: 15px 25px; font-size: 0.9rem; text-align: center;">
+            <i class="fa-solid fa-gears"></i> <strong>設計の要：</strong> 検査は「光」で緻密に行い、データ伝送は「電波」で柔軟に。
+        </div>
+    </div>
+</div>
+
+
+    
+    
 <div class="container">
     <header>
         <h1>電磁波スペクトル・ポータル：光 vs 電波</h1>
@@ -347,7 +397,6 @@
     </header>
 
  
-
     <div class="info-grid">
         <div class="card light">
             <h2 style="color: var(--accent-blue);">光 (Visible & NIR)</h2>
