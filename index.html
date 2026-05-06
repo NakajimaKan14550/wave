@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>光学設計・電磁波解析ポータル</title>
+    <title>光学設計・電磁波解析ポータル | 精密自動化の物理層</title>
     <style>
         :root {
             --bg-deep: #050a18;
@@ -26,6 +26,7 @@
             line-height: 1.6;
         }
 
+        /* トップナビゲーション（左隅ロゴ） */
         .top-nav {
             position: sticky;
             top: 0;
@@ -44,7 +45,10 @@
             height: 40px;
             width: auto;
             display: block;
+            transition: opacity 0.3s;
         }
+
+        .logo-link:hover { opacity: 0.8; }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 20px; }
 
@@ -72,6 +76,7 @@
             color: var(--text-main);
         }
 
+        /* 画像コンテナ */
         .visual-frame {
             background: #000;
             padding: 15px;
@@ -114,6 +119,16 @@
         .spec-list li { margin-bottom: 8px; position: relative; }
         .spec-list li::before { content: "●"; color: var(--accent-blue); position: absolute; left: -18px; font-size: 0.7rem; }
 
+        /* 技術詳細テキスト用 */
+        .tech-detail {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        .tech-detail h4 { color: var(--text-main); margin-bottom: 10px; border-bottom: 1px solid var(--border); display: inline-block; }
+
+        /* モーダル背景 */
         #modal {
             display: none;
             position: fixed;
@@ -143,12 +158,12 @@
         <p>「物理的な正解」を撮像し、自動判定の信頼性を最大化する</p>
     </header>
 
-    <!-- 01. 電磁波スペクトル：光学領域（新規追加：dengi.png） -->
+    <!-- 01. 電磁波スペクトル：光学領域（denji.png） -->
     <div class="section-title">01. 光学領域の特性詳細（UV - 可視光 - 赤外）</div>
     
     <div class="visual-frame">
-        <img src="watermarked_img_8103520578513384413.png" alt="電磁波スペクトル：光学領域" class="zoomable">
-        <p style="color: var(--accent-blue); font-size: 0.8rem; margin-top: 10px;">クリックして拡大：dengi.png（波長ごとの物質相互作用図）</p>
+        <img src="denji.png" alt="電磁波スペクトル：光学領域" class="zoomable">
+        <p style="color: var(--accent-blue); font-size: 0.8rem; margin-top: 10px;">クリックして拡大：波長ごとの物質相互作用と実務用途</p>
     </div>
 
     <div class="grid">
@@ -170,9 +185,9 @@
         <div class="card tag-red">
             <h3 style="color: var(--accent-red);">赤色光 (650nm) / 赤外</h3>
             <ul class="spec-list">
-                <li>PCB上のパターン検査。</li>
-                <li>浸透バランスと特徴抽出。</li>
-                <li>NIR/SWIRによるパッケージ内部の可視化。</li>
+                <li>PCB上のパターン検査、浸透バランスと特徴抽出。</li>
+                <li><b>NIR/SWIR:</b> 樹脂・パッケージを透過し内部を可視化。</li>
+                <li>水分の有無を検出するセンシングへの応用。</li>
             </ul>
         </div>
     </div>
@@ -184,28 +199,53 @@
         <img src="denpa.png" alt="理論全体図" class="zoomable">
     </div>
 
-    <!-- 03. 高度光学制御 -->
-    <div class="section-title">03. 幾何・波面補正技術</div>
+    <!-- 03. 幾何・波面補正技術（詳細テキスト追加） -->
+    <div class="section-title">03. 幾何・波面補正技術：物理層でのエラー解決</div>
 
-    <div class="grid">
+    <div class="grid" style="grid-template-columns: 1fr 1fr;">
+        <!-- 波面制御 (AO) -->
         <div class="card">
             <h2 style="color: var(--accent-blue);">波面制御 (AO)</h2>
             <div class="visual-frame" style="padding:5px; margin-bottom:15px;">
                 <img src="hamen.png" alt="波面補正" class="zoomable">
             </div>
-            <p style="font-size: 0.9rem;">環境による光の歪みを動的に補正。回折限界の鮮明さを維持します。</p>
+            <div class="tech-detail">
+                <h4>波面補償光学の原理</h4>
+                <p>空気の揺らぎや温度変化による屈折率ムラ、レンズの不完全さによる光の「波面」の乱れをリアルタイムで修正し、理論上の限界解像度（回折限界）を引き出します。</p>
+                <ul class="spec-list">
+                    <li><b>波面センサ:</b> 光のデコボコ（歪み）をリアルタイム計測。</li>
+                    <li><b>可変形状ミラー (DM):</b> アクチュエータが鏡の形状を微細に変化させ、逆方向の歪みを与えて打ち消す。</li>
+                    <li><b>DXメリット:</b> 過酷な工場環境でも動的に収差を打ち消し、鮮明度を維持。</li>
+                </ul>
+            </div>
         </div>
 
+        <!-- テレセントリック (TC) -->
         <div class="card">
             <h2 style="color: var(--accent-yellow);">テレセントリック (TC)</h2>
             <div class="visual-frame" style="padding:5px; margin-bottom:15px;">
                 <img src="yugami.png" alt="テレセントリック" class="zoomable">
             </div>
-            <p style="font-size: 0.9rem;">主光線を平行化し、高さ変動による視差エラーを物理的に消去します。</p>
+            <div class="tech-detail">
+                <h4>ゆがみ（ディストーション）の解決</h4>
+                <p>主光線を光軸に対して「平行」に整える特殊設計により、レンズ特有のゆがみや視差による寸法エラーを物理的に消去します。</p>
+                <ul class="spec-list">
+                    <li><b>視差の排除:</b> 物体が上下に動いても画像上の大きさが変化しない。</li>
+                    <li><b>絶対精度:</b> 0.01%〜0.1%の極低ディストーション。</li>
+                    <li><b>DXメリット:</b> ソフトウェア側の補正負荷を大幅軽減し、撮像時点で「正しい座標」を確定。</li>
+                </ul>
+            </div>
         </div>
+    </div>
+
+    <!-- 実務知見 -->
+    <div class="card" style="background: linear-gradient(135deg, #1e3a5f 0%, #050a18 100%); border: 2px solid var(--accent-blue); text-align: center; margin-top: 40px;">
+        <h2 style="color: var(--accent-blue); margin-top: 10px;">💡 DX自動化の核心</h2>
+        <p>「撮った後にソフトで頑張る」のではなく、波長特性と高度光学制御を使い、<br><strong>「撮る瞬間に物理層で正解を確定させる」</strong>ことが、高信頼な無人化への最短ルートです。</p>
     </div>
 </div>
 
+<!-- 拡大用モーダル -->
 <div id="modal">
     <img id="modal-img" src="" alt="拡大画像">
 </div>
