@@ -1,181 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>波長と光の性質</title>
-    <style>
-        /* ダークモード等の設定を無視して白背景・黒文字を強制 */
-        html, body {
-            background-color: #ffffff !important;
-            color: #000000 !important;
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-            line-height: 1.8;
-        }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #ffffff !important;
-        }
-
-        /* ヘッダー */
-        header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid #000000;
-            margin-bottom: 40px;
-        }
-        .logo { height: 50px; width: auto; }
-
-        /* タイトル */
-        h1 {
-            font-size: 28px;
-            font-weight: 900;
-            margin-bottom: 10px;
-            color: #000000 !important;
-        }
-        .subtitle {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            color: #333333 !important;
-        }
-
-        /* サマリーボックス */
-        .summary-box {
-            border: 2px solid #000000;
-            padding: 25px;
-            margin-bottom: 50px;
-            background-color: #f9f9f9 !important;
-        }
-        .summary-box h3 {
-            margin-top: 0;
-            font-size: 20px;
-            text-decoration: underline;
-            color: #0d4d4d !important;
-        }
-        .summary-box ul { margin: 15px 0 0 0; padding-left: 20px; }
-        .summary-box li { 
-            margin-bottom: 10px; 
-            font-weight: bold; 
-            color: #000000 !important;
-        }
-
-        /* セクション */
-        h2 {
-            font-size: 32px;
-            border-left: 10px solid #d4af37;
-            padding-left: 15px;
-            margin: 60px 0 30px 0;
-            color: #000000 !important;
-        }
-
-        /* 画像エリア：修正の核 */
-        .image-container {
-            margin: 30px 0;
-            text-align: center;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border: 1px solid #dddddd; /* 画像の存在を確認するための薄い枠 */
-        }
-        .image-caption {
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 15px;
-            color: #000000 !important;
-        }
-
-        /* 箇条書き */
-        .details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        @media (max-width: 600px) { .details { grid-template-columns: 1fr; } }
-        
-        .detail-item {
-            border: 1px solid #000000;
-            padding: 15px;
-        }
-        .detail-item strong { color: #ea580c !important; display: block; margin-bottom: 5px; }
-
-        footer {
-            margin-top: 80px;
-            padding-top: 20px;
-            border-top: 1px solid #000000;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <img src="logo.png" alt="CHRONIX" class="logo">
-    </header>
-
-    <h1 style="color: #000000 !important;">【業界トレンド】波長と光の物理特性：画像センシングへの応用</h1>
-    <p class="subtitle">「波の性質」を利用し、肉眼を超えた自動検査システムを構築する</p>
-
-    <div class="summary-box">
-        <h3 style="color: #0d4d4d !important;">エグゼクティブ・サマリー</h3>
-        <ul>
-            <li>画像検査の自動化において、適切な「波長」の選択は歩留まりを左右する最重要工程である。</li>
-            <li>可視光（RGB）だけでなく、赤外線や紫外線を活用することで、肉眼では不可能な「透過」「散乱」「強調」が可能になる。</li>
-            <li>光学特性を理解した「光のコントロール」こそが、製造現場におけるDX自動化の鍵を握る。</li>
-        </ul>
-    </div>
-
-    <section>
-        <h2 style="color: #000000 !important;">1. 波長と光の性質</h2>
-        
-        <div class="image-container">
-            <!-- ファイル名をimage_bc80c6.jpgに変更 -->
-            <img src="image_bc80c6.jpg" alt="産業用イメージングにおける電磁波活用とスケールの概念">
-            <p class="image-caption">産業用センシングにおける電磁波活用（紫外〜可視〜赤外）の全体像</p>
-        </div>
-
-        <p style="color: #000000 !important;">
-            画像センシングの実務において、電磁波の活用範囲を正しく理解することは、検査の自動化を成功させるための第一歩です。
-            私たちが普段見ている「可視光」は巨大なスペクトルのごく一部に過ぎません。<b>近赤外線（NIR）</b>による透過検査や、<b>短波赤外（SWIR）</b>による水分の可視化など、波長ごとの物理特性を使い分けることで、不良原因を特定できます。
-        </p>
-
-        <div class="details">
-            <div class="detail-item">
-                <strong>● 青色光：散乱の利用</strong>
-                波長が短く散乱しやすいため、表面の微細なキズを浮き上がらせます。
-            </div>
-            <div class="detail-item">
-                <strong>● 赤外線：透過の利用</strong>
-                樹脂を透過し、内部の異物やパッケージ裏側の印字を検査できます。
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 style="color: #000000 !important;">2. 自動化の鍵を握る「光の最適化」</h2>
-        <p style="color: #000000 !important;">
-            対象物の「材質」と「色」の相性を最適化するためには、レンズの選定だけでなく、適切な波長の光源を組み合わせることが不可欠です。これにより、AIや画像処理アルゴリズムが判断しやすい「高コントラストな画像」を安定して生成することが可能になります。
-        </p>
-    </section>
-
-    <footer style="color: #000000 !important;">
-        <p><strong>編集後記：</strong><br>
-        光学設計の精度は、自動検査システムの「眼」の良さを決定します。見えないものを視覚化し、品質向上を両立するための技術的ご相談は、いつでも窓口までお寄せください。</p>
-    </footer>
-</div>
-
-</body>
-</html>
 
 
         <!DOCTYPE html>
@@ -183,7 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>波長と光の性質：画像センシングへの応用</title>
+<h1 style="color: #000000 !important; font-size: 28px; margin-bottom: 10px;">【業界トレンド】波長と光の物理特性：画像センシングへの応用</h1>
+    <p style="color: #000000 !important; font-size: 18px; font-weight: bold; margin-bottom: 40px;">「波の性質」を利用し、肉眼を超えた自動検査システムを構築する</p>
+
+    <!-- ここから導入文 -->
+    <div style="color: #000000 !important; font-size: 16px; line-height: 1.8; margin-bottom: 40px; padding: 20px; border-left: 5px solid #000000; background-color: #f8fafc !important;">
+        製造現場における「自動検査」の成否は、AIやアルゴリズムの性能以上に、いかにして「情報の源」である鮮明な画像を取得できるかにかかっています。
+        本稿では、ご提示いただいた産業用イメージングの概念図に基づき、光の物理的な「波の性質」を紐解きます。
+        可視光の枠を超えた波長戦略が、どのように人員削減と歩留まり向上というDXの至上命題を解決するのか、その核心を解説します。
+    </div>
+    <!-- ここまで導入文 -->
+
+    <div style="background-color: #f0f4f8 !important; border: 2px solid #000000; padding: 25px; margin-bottom: 50px;">
     <style>
         :root {
             --primary-dark: #0f172a;
