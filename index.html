@@ -1,23 +1,204 @@
-<header style="
-    background: #ffffff; 
-    padding: 20px 40px; 
-    width: 100%; 
-    box-sizing: border-box;
-">
-    <a href="https://nakajimakan14550.github.io/home/" style="display: inline-block; text-decoration: none;">
-        <img src="logo.png" alt="CHRONIX" style="height: 45px; width: auto; display: block; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7';" onmouseout="this.style.opacity='1';">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波長と光の性質</title>
+    <style>
+        :root {
+            --primary-dark: #0d4d4d;
+            --accent-gold: #d4af37;
+            --accent-blue: #0ea5e9;
+            --accent-orange: #ea580c;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --text-main: #334155;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--white);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 20px 40px;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .logo { height: 45px; width: auto; transition: opacity 0.3s ease; }
+        .logo:hover { opacity: 0.7; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+        /* Typography */
+        h1.report-title {
+            font-size: 36px;
+            color: var(--primary-dark);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+        h2.section-title {
+            color: var(--primary-dark);
+            border-left: 8px solid #d4af37;
+            padding-left: 20px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin: 60px 0 30px 0;
+        }
+
+        /* Executive Summary */
+        .summary-box {
+            background: #f1f5f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        .summary-box h3 { margin-top: 0; font-size: 1.2rem; color: var(--primary-dark); }
+
+        /* Optical Tech Dashboard (Integrated) */
+        .fb-main-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+        .fb-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        @media (max-width: 768px) { .fb-grid { grid-template-columns: 1fr; } }
+
+        .zoom-link {
+            display: block;
+            position: relative;
+            cursor: zoom-in;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        .zoom-link img { width: 100%; display: block; }
+        .zoom-icon {
+            position: absolute; bottom: 10px; right: 10px;
+            background: rgba(30, 41, 59, 0.7); color: #fff;
+            padding: 4px 10px; border-radius: 20px; font-size: 11px;
+        }
+
+        .table-standard {
+            width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.85rem;
+        }
+        .table-standard th, .table-standard td {
+            padding: 10px; border-bottom: 1px solid var(--border-color); text-align: left;
+        }
+        .table-standard th { background: #f1f5f9; }
+
+        .info-box {
+            background: #fff9db; border-left: 4px solid #fab005;
+            padding: 15px; border-radius: 0 8px 8px 0; font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="https://nakajimakan14550.github.io/home/">
+        <img src="logo.png" alt="CHRONIX" class="logo">
     </a>
 </header>
 
-<section style="padding: 100px 20px; background: #ffffff; font-family: 'Noto Sans JP', sans-serif;">
-    <div style="max-width: 1100px; margin: 0 auto;">
+<div class="container">
+    <h1 class="report-title">【業界トレンドレポート】レーザー加工の「ブラックボックス」を解明せよ：波長最適化が切り拓く次世代製造の限界突破</h1>
+
+    <div class="summary-box">
+        <h3>エグゼクティブ・サマリー</h3>
+        <ul>
+            <li>レーザー加工の高度化に伴い、機械の仕様だけでなく「波長」の物理的特性を理解する重要性が増している。</li>
+            <li>非鉄金属や微細加工の需要拡大により、光の集光と制御（光学系）が歩留まりを左右する時代となった。</li>
+            <li>「光のコントロール」を最適化することが、製造現場のDXと自動化における新たな競争優位性となる。</li>
+        </ul>
+    </div>
+
+    <section>
+        <h2 class="section-title">1. 波長と光の性質</h2>
         
-        <div style="margin-bottom: 60px;">
-            <h2 style="color: #0d4d4d; border-left: 8px solid #d4af37; padding-left: 20px; font-size: 32px; font-weight: 700; letter-spacing: 0.05em;">
-                1. 波長と光の性質
-            </h2>
+        <!-- 光学技術セクション -->
+        <div class="fb-main-card">
+            <div class="fb-grid">
+                <div>
+                    <a href="flange.png" target="_blank" class="zoom-link">
+                        <img src="flange.png" alt="フランジバックとバックフォーカス">
+                        <span class="zoom-icon">クリックで拡大</span>
+                    </a>
+                    <p style="font-size: 12px; color: #94a3b8; text-align: center; margin-top: 10px;">図：光学設計の基礎となるフランジバック(FB)構造</p>
+                </div>
+                <div style="font-size: 14px;">
+                    <p>レーザー加工の「質」を決定づけるのは、光源の出力だけではありません。その光をいかに正しく導き、ターゲットへ集光させるかという<b>「光学設計の精度」</b>がすべてを握ります。</p>
+                    
+                    <h4 style="color: var(--accent-orange); margin: 20px 0 8px 0;">■ フランジバック (FB) の重要性</h4>
+                    <p>マウント面からセンサー（あるいは加工点）までの基準距離です。この物理的制約を無視した設計は、エネルギー密度の分散を招き、加工不良の根本原因となります。</p>
+                    
+                    <table class="table-standard">
+                        <thead><tr><th>規格</th><th>距離(mm)</th><th>特徴</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cマウント</td><td>17.526</td><td>産業用カメラ・光学系の標準</td></tr>
+                            <tr><td>CSマウント</td><td>12.526</td><td>小型・近距離設計に特化</td></tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="info-box">
+                        <strong>📌 設計のポイント：</strong><br>
+                        波長が短くなる（グリーン・ブルーレーザー等）ほど、わずかな光路のズレが加工精度に致命的な影響を与えます。
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <p>
+            現在の製造業界において、要求精度はサブミクロン単位へと移行しています。ここで重要なのは、レーザー光源そのものの出力よりも、「波長と素材の相互作用」です。
+            例えば、従来のファイバーレーザー（近赤外線）では吸収率が低かった銅や金に対し、短波長（グリーンやブルー）を活用することで、熱影響を抑えた精密な加工が可能になります。
+        </p>
+    </section>
+
+    <section>
+        <h2 class="section-title">2. 浮かび上がる「静かなる課題」</h2>
+        <p>
+            多くの現場では、レーザー発振器のスペック（kW数）は吟味されますが、光を届ける「光学系（レンズやミラー）」の設計思想はブラックボックス化されがちです。
+            どんなに強力な光源を用いても、光学系が不適切であればエネルギーは分散し、熱歪みを誘発します。歩留まり改善の鍵は、実は「波長特性と光学系のミスマッチ」の解消にあるのです。
+        </p>
+    </section>
+
+    <section>
+        <h2 class="section-title">3. 202X年の展望と対策</h2>
+        <p>今後、光学設計はコアコンピタンスの一部となります。以下の3点が重要です。</p>
+        <ol>
+            <li><strong>「光の設計図」の再定義：</strong> 波長に合わせたコーティングや基板材料の最適化。</li>
+            <li><strong>設計・製造の一貫性の確保：</strong> ミクロン単位の誤差を排除するサプライチェーンの精査。</li>
+            <li><strong>パートナーシップ：</strong> プロトタイプから量産まで一貫して担える拠点との連携。</li>
+        </ol>
+    </section>
+
+    <footer style="margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border-color); font-size: 14px;">
+        <p><strong>編集後記：</strong><br>
+        レーザー加工の質は、光をいかに研ぎ澄ますかという光学部品の精度で決まります。世界中の工場で活用されるレーザー加工機の「心臓部」を設計する当社の知見が、貴社の技術的なボトルネックを解消する一助となれば幸いです。</p>
+    </footer>
+</div>
+
+</body>
+</html>
 
         <!DOCTYPE html>
 <html lang="ja">
