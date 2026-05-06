@@ -22,11 +22,10 @@
             background-color: var(--bg-deep);
             color: var(--text-main);
             margin: 0;
-            padding: 0; /* ヘッダー固定のため調整 */
+            padding: 0;
             line-height: 1.6;
         }
 
-        /* 追加：トップナビゲーション（左隅ロゴ） */
         .top-nav {
             position: sticky;
             top: 0;
@@ -41,19 +40,8 @@
             align-items: center;
         }
 
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .logo-link:hover {
-            opacity: 0.8;
-        }
-
         .logo-link img {
-            height: 40px; /* ロゴのサイズはお好みで調整してください */
+            height: 40px;
             width: auto;
             display: block;
         }
@@ -76,7 +64,14 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 画像コンテナと拡大機能 */
+        .section-title {
+            font-size: 1.6rem;
+            border-left: 5px solid var(--accent-blue);
+            padding-left: 15px;
+            margin: 60px 0 25px;
+            color: var(--text-main);
+        }
+
         .visual-frame {
             background: #000;
             padding: 15px;
@@ -97,40 +92,27 @@
 
         .visual-frame img:hover { opacity: 0.8; }
 
-        /* セクションタイトル */
-        .section-title {
-            font-size: 1.6rem;
-            border-left: 5px solid var(--accent-blue);
-            padding-left: 15px;
-            margin: 50px 0 25px;
-            color: var(--text-main);
-        }
-
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
 
         .card {
             background: var(--panel-bg);
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
             border: 1px solid var(--border);
-            position: relative;
         }
 
-        .card h2 { margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
         .tag-blue { border-top: 4px solid var(--accent-blue); }
-        .tag-red { border-top: 4px solid var(--accent-red); }
         .tag-green { border-top: 4px solid var(--accent-green); }
-        .tag-yellow { border-top: 4px solid var(--accent-yellow); }
+        .tag-red { border-top: 4px solid var(--accent-red); }
 
-        .spec-list { padding-left: 20px; font-size: 0.95rem; color: var(--text-dim); list-style: none; }
+        .spec-list { padding-left: 20px; font-size: 0.9rem; color: var(--text-dim); list-style: none; }
         .spec-list li { margin-bottom: 8px; position: relative; }
-        .spec-list li::before { content: "■"; color: var(--accent-blue); position: absolute; left: -18px; font-size: 0.8rem; }
-        .spec-list b { color: var(--text-main); }
+        .spec-list li::before { content: "●"; color: var(--accent-blue); position: absolute; left: -18px; font-size: 0.7rem; }
 
         #modal {
             display: none;
@@ -145,36 +127,10 @@
 
         #modal img { max-width: 90%; max-height: 90%; border: 2px solid var(--accent-blue); }
 
-        .insight-box {
-            background: linear-gradient(135deg, #1e3a5f 0%, #050a18 100%);
-            padding: 40px;
-            border-radius: 20px;
-            border: 2px solid var(--accent-blue);
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .logic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .logic-item {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: left;
-        }
-
-        .logic-item strong { color: var(--accent-blue); }
-
     </style>
 </head>
 <body>
 
-<!-- 追加：ロゴリンク付きナビゲーションバー -->
 <nav class="top-nav">
     <a href="https://nakajimakan14550.github.io/home" class="logo-link">
         <img src="logo.png" alt="Home Logo">
@@ -183,60 +139,53 @@
 
 <div class="container">
     <header>
-        <h1>電磁波スペクトル：光と電波の連続性と違い</h1>
-        <p>理論全体図から読み解く、自動化・計測への物理的アプローチ</p>
+        <h1>電磁波スペクトルと光学センシング</h1>
+        <p>「物理的な正解」を撮像し、自動判定の信頼性を最大化する</p>
     </header>
 
-    <!-- 01. 理論全体図 -->
-    <div class="section-title">01. 理論全体図（スケールの概念）</div>
+    <!-- 01. 電磁波スペクトル：光学領域（新規追加：dengi.png） -->
+    <div class="section-title">01. 光学領域の特性詳細（UV - 可視光 - 赤外）</div>
     
     <div class="visual-frame">
-        <img src="denpa.png" alt="電磁波スペクトル" class="zoomable">
-        <p style="color: var(--accent-blue); font-size: 0.8rem; margin-top: 10px;">クリックして拡大：ガンマ線から電波までのスペクトル解析図</p>
+        <img src="watermarked_img_8103520578513384413.png" alt="電磁波スペクトル：光学領域" class="zoomable">
+        <p style="color: var(--accent-blue); font-size: 0.8rem; margin-top: 10px;">クリックして拡大：dengi.png（波長ごとの物質相互作用図）</p>
     </div>
 
     <div class="grid">
         <div class="card tag-blue">
-            <h2 style="color: var(--accent-blue);">光（可視光周辺）の特徴</h2>
+            <h3 style="color: var(--accent-blue);">青色光 (450nm)</h3>
             <ul class="spec-list">
-                <li><b>視覚的性質:</b> 目に見える。</li>
-                <li><b>直進性:</b> 非常に高い（影ができる）。</li>
-                <li><b>遮断特性:</b> 固体で遮断される。</li>
-                <li><b>エネルギー:</b> 比較的高い。</li>
-                <li><b>主な用途:</b> 視覚・照明、撮像素子による外観検査。</li>
+                <li>表面キズ検出、微細欠陥の可視化。</li>
+                <li>粒子汚染の強調。</li>
+                <li>散乱特性を利用した高コントラスト撮像。</li>
             </ul>
         </div>
-
-        <div class="card tag-yellow">
-            <h2 style="color: var(--accent-yellow);">実務における波長選択</h2>
-            <ul class="spec-list">
-                <li><b>青 (450nm):</b> 対象物との色の相性を最適化。微細キズの抽出。</li>
-                <li><b>緑 (550nm):</b> 標準的な検査波長。</li>
-                <li><b>赤 (650nm):</b> 透過と散乱のバランス。</li>
-                <li><b>SWIR (短波長赤外):</b> 樹脂・パッケージを透過可視化。水分の有無を検出。</li>
-            </ul>
-        </div>
-
         <div class="card tag-green">
-            <h2 style="color: var(--accent-green);">電波（通信・レーダー）の特徴</h2>
+            <h3 style="color: var(--accent-green);">緑色光 (532nm / 550nm)</h3>
             <ul class="spec-list">
-                <li><b>視覚的性質:</b> 目に見えない。</li>
-                <li><b>回折特性:</b> 回り込む性質がある。</li>
-                <li><b>透過特性:</b> 壁をある程度通り抜ける。</li>
-                <li><b>エネルギー:</b> 低い。</li>
-                <li><b>主な用途:</b> テレビ・スマホ通信、レーダー（障害物検知）。</li>
+                <li>一般検査、正確な位置合わせ。</li>
+                <li>色の一貫性とコントラスト強調。</li>
+            </ul>
+        </div>
+        <div class="card tag-red">
+            <h3 style="color: var(--accent-red);">赤色光 (650nm) / 赤外</h3>
+            <ul class="spec-list">
+                <li>PCB上のパターン検査。</li>
+                <li>浸透バランスと特徴抽出。</li>
+                <li>NIR/SWIRによるパッケージ内部の可視化。</li>
             </ul>
         </div>
     </div>
 
-    <!-- 境界領域 -->
-    <div class="card" style="margin-bottom: 40px; border-left: 10px solid var(--text-dim);">
-        <h2 style="color: var(--text-main);">テラヘルツ波 (0.11 - 1.0 THz)</h2>
-        <p>「光」の直進性と「電波」の透過性を併せ持つ境界領域。非破壊検査の次世代を担う波長帯。</p>
+    <!-- 02. 理論全体図（denpa.png） -->
+    <div class="section-title">02. 光と電波の連続性（理論全体図）</div>
+    
+    <div class="visual-frame">
+        <img src="denpa.png" alt="理論全体図" class="zoomable">
     </div>
 
-    <!-- 02. 高度光学制御 -->
-    <div class="section-title">02. 高度光学制御：波面補正とゆがみ抑制</div>
+    <!-- 03. 高度光学制御 -->
+    <div class="section-title">03. 幾何・波面補正技術</div>
 
     <div class="grid">
         <div class="card">
@@ -244,7 +193,7 @@
             <div class="visual-frame" style="padding:5px; margin-bottom:15px;">
                 <img src="hamen.png" alt="波面補正" class="zoomable">
             </div>
-            <p>環境変動による光の「歪み」を動的に補正し、常に回折限界の鮮明さを維持します。</p>
+            <p style="font-size: 0.9rem;">環境による光の歪みを動的に補正。回折限界の鮮明さを維持します。</p>
         </div>
 
         <div class="card">
@@ -252,27 +201,7 @@
             <div class="visual-frame" style="padding:5px; margin-bottom:15px;">
                 <img src="yugami.png" alt="テレセントリック" class="zoomable">
             </div>
-            <p>主光線を平行に整え、ワークの高さ変動による寸法エラーと視差を物理的に排除します。</p>
-        </div>
-    </div>
-
-    <!-- 実務知見 -->
-    <div class="insight-box">
-        <h2 style="color: var(--accent-blue); margin-top: 0;">🛠 DXエンジニアリング・インサイト</h2>
-        <p>物理層で「判定を容易にする」ことが、自動化への最短ルートです。</p>
-        <div class="logic-grid">
-            <div class="logic-item">
-                <strong>物理層での解決</strong><br>
-                画像処理で頑張る前に、適切な波長を選択して判定を容易にする。
-            </div>
-            <div class="logic-item">
-                <strong>不可視の可視化</strong><br>
-                SWIR等を活用し、これまで人の勘に頼っていたプロセスを無人化。
-            </div>
-            <div class="logic-item">
-                <strong>精度の幾何学的保証</strong><br>
-                TCレンズを用い、ソフト補正に頼らない正しい座標を撮像時点で確定させる。
-            </div>
+            <p style="font-size: 0.9rem;">主光線を平行化し、高さ変動による視差エラーを物理的に消去します。</p>
         </div>
     </div>
 </div>
