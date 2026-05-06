@@ -93,9 +93,12 @@
         .card h2 { margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
         .tag-blue { border-top: 4px solid var(--accent-blue); }
         .tag-red { border-top: 4px solid var(--accent-red); }
+        .tag-green { border-top: 4px solid var(--accent-green); }
         .tag-yellow { border-top: 4px solid var(--accent-yellow); }
 
-        .spec-list { padding-left: 20px; font-size: 0.95rem; color: var(--text-dim); }
+        .spec-list { padding-left: 20px; font-size: 0.95rem; color: var(--text-dim); list-style: none; }
+        .spec-list li { margin-bottom: 8px; position: relative; }
+        .spec-list li::before { content: "■"; color: var(--accent-blue); position: absolute; left: -18px; font-size: 0.8rem; }
         .spec-list b { color: var(--text-main); }
 
         /* モーダル背景 */
@@ -144,45 +147,59 @@
 
 <div class="container">
     <header>
-        <h1>波長と光の物理特性：画像センシングへの応用</h1>
-        <p>「波の性質」を利用し、肉眼を超えた自動検査システムを構築する</p>
+        <h1>電磁波スペクトル：光と電波の連続性と違い</h1>
+        <p>理論全体図から読み解く、自動化・計測への物理的アプローチ</p>
     </header>
 
-    <!-- SECTION 1: 波長特性 -->
-    <div class="section-title">01. 電磁波スペクトルと実務範囲</div>
+    <!-- SECTION 1: 電磁波スペクトル詳細 (denpa.png) -->
+    <div class="section-title">01. 理論全体図（スケールの概念）</div>
     
     <div class="visual-frame">
-        <img src="wave.png" alt="電磁波スペクトル" class="zoomable">
-        <p style="color: var(--accent-blue); font-size: 0.8rem; margin-top: 10px;">クリックして拡大：波長による散乱・透過特性の差異</p>
+        <img src="denpa.png" alt="電磁波スペクトル：光と電波の連続性と違い" class="zoomable">
+        <p style="color: var(--accent-blue); font-size: 0.8rem; margin-top: 10px;">クリックして拡大：ガンマ線から電波までのスペクトル解析図</p>
     </div>
 
     <div class="grid">
+        <!-- 特徴：光 -->
         <div class="card tag-blue">
-            <h2 style="color: var(--accent-blue);">青色光：散乱の利用</h2>
-            <p>波長が短い（450nm付近）ほど、微細な凹凸で激しく散乱します。</p>
+            <h2 style="color: var(--accent-blue);">光（可視光周辺）の特徴</h2>
             <ul class="spec-list">
-                <li><b>用途:</b> 金属表面の極微細なキズ、透明体上の埃の検出。</li>
-                <li><b>メリット:</b> 可視化しにくい表面状態をコントラスト高く抽出。</li>
+                <li><b>視覚的性質:</b> 目に見える。</li>
+                <li><b>直進性:</b> 非常に高い（影ができる）。</li>
+                <li><b>遮断特性:</b> 固体で遮断される。</li>
+                <li><b>エネルギー:</b> 比較的高い。</li>
+                <li><b>主な用途:</b> 視覚・照明、撮像素子による外観検査。</li>
             </ul>
         </div>
 
-        <div class="card tag-red">
-            <h2 style="color: var(--accent-red);">赤外光：透過の利用</h2>
-            <p>波長が長い（850nm以上）ほど、物質内部へ浸透・透過しやすくなります。</p>
-            <ul class="spec-list">
-                <li><b>用途:</b> 黒色樹脂容器の液量検査、基板裏側のパターン検査。</li>
-                <li><b>メリット:</b> 可視光を遮断するパッケージを「透かして」見る。</li>
-            </ul>
-        </div>
-
+        <!-- ズームアップ：実務領域 -->
         <div class="card tag-yellow">
-            <h2 style="color: var(--accent-yellow);">境界：テラヘルツ・電波</h2>
-            <p>光の直進性と電波の透過性を併せ持つ領域の活用。</p>
+            <h2 style="color: var(--accent-yellow);">実務における波長選択</h2>
             <ul class="spec-list">
-                <li><b>用途:</b> 非破壊での中身透視、梱包後の欠品検査。</li>
-                <li><b>メリット:</b> 箱を開けずに人員を削減するDXの要。</li>
+                <li><b>青 (450nm):</b> 対象物との色の相性を最適化。微細キズの抽出。</li>
+                <li><b>緑 (550nm):</b> 標準的な検査波長。</li>
+                <li><b>赤 (650nm):</b> 透過と散乱のバランス。</li>
+                <li><b>SWIR (短波長赤外):</b> 樹脂・パッケージを透過可視化。水分の有無を検出。</li>
             </ul>
         </div>
+
+        <!-- 特徴：電波 -->
+        <div class="card tag-green">
+            <h2 style="color: var(--accent-green);">電波（通信・レーダー）の特徴</h2>
+            <ul class="spec-list">
+                <li><b>視覚的性質:</b> 目に見えない。</li>
+                <li><b>回折特性:</b> 回り込む性質がある。</li>
+                <li><b>透過特性:</b> 壁をある程度通り抜ける。</li>
+                <li><b>エネルギー:</b> 低い。</li>
+                <li><b>主な用途:</b> テレビ・スマホ通信、レーダー（障害物検知）。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 境界領域 -->
+    <div class="card" style="margin-bottom: 40px; border-left: 10px solid var(--text-dim);">
+        <h2 style="color: var(--text-main);">テラヘルツ波 (0.11 - 1.0 THz)</h2>
+        <p>「光」の直進性と「電波」の透過性を併せ持つ境界領域。非破壊検査の次世代を担う波長帯。</p>
     </div>
 
     <!-- SECTION 2: 波面と幾何学的補正 -->
@@ -208,21 +225,21 @@
 
     <!-- SECTION 3: 実務知見 -->
     <div class="insight-box">
-        <h2 style="color: var(--accent-blue); margin-top: 0;">🛠 安定化した自動化の黄金律</h2>
-        <p>単に「撮る」のではなく、波長の物理特性を利用して「判定を容易にする」ことが鍵です。</p>
+        <h2 style="color: var(--accent-blue); margin-top: 0;">🛠 DXエンジニアリング・インサイト</h2>
+        <p>「光」から「電波」までの連続性を理解し、検査対象に最適な波長を物理層で選択することが、自動化（人員削減）への最短ルートです。</p>
         
         <div class="logic-grid">
             <div class="logic-item">
-                <strong>表面検査の自動化</strong><br>
-                短波長（青/UV）照明でノイズを排除し、欠陥のみを浮かび上がらせる。
+                <strong>物理層での解決</strong><br>
+                画像処理やAIで頑張る前に、適切な波長（例：NIRでの透過）を選択して判定を容易にする。
             </div>
             <div class="logic-item">
-                <strong>内部検査の自動化</strong><br>
-                赤外（NIR/SWIR）照明で中身を可視化。人による破壊検査を廃止。
+                <strong>不可視の可視化</strong><br>
+                SWIRやテラヘルツ波を活用し、これまで人の「勘」や「開封」に頼っていたプロセスを無人化。
             </div>
             <div class="logic-item">
-                <strong>AI精度の向上</strong><br>
-                光学設計で座標の正しさを担保。アルゴリズムへの負荷を物理層で軽減。
+                <strong>精度の幾何学的保証</strong><br>
+                TCレンズ等を用い、ソフト補正に頼らない「正しい座標」を撮像時点で確定させる。
             </div>
         </div>
     </div>
